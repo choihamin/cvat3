@@ -208,5 +208,7 @@ WORKDIR ${HOME}
 
 RUN mkdir -p data share keys logs /tmp/supervisord static
 
+RUN docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+
 EXPOSE 8080
 ENTRYPOINT ["./backend_entrypoint.sh"]
