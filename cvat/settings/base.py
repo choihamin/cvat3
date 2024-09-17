@@ -724,3 +724,12 @@ update_started_job_registry_cleanup()
 
 CLOUD_DATA_DOWNLOADING_MAX_THREADS_NUMBER = 4
 CLOUD_DATA_DOWNLOADING_NUMBER_OF_FILES_PER_THREAD = 1000
+
+if os.environ.get('USE_CLOUDINARY_STORAGE') == 'True':
+    INSTALLED_APPS += ['cloudinary_storage', 'cloudinary']
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+        'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+        'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET')
+    }

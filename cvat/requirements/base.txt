@@ -358,3 +358,5 @@ zipp==3.20.1
     # via importlib-metadata
 zstandard==0.23.0
     # via clickhouse-connect
+django-cloudinary-storage==0.3.0
+cloudinary==1.26.0
